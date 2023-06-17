@@ -233,14 +233,9 @@ spec:
           path: {{ .path }}
       {{- end }}{{- /* END RANGE */}}
       {{- end }} {{- /* END FILEPARAMETERS */}}
-    {{- end }} {{- /* IF NOT PLUGIN-ELSE */}}
-
-
-
-
-  {{- end }}  
+    {{- end }} {{- /* IF NOT KUSTOMIZE AND CHART */}}
+  {{- end }} {{- /* END OF RANGE SOURCES */}} 
   {{- else }}
-  
   source:
     repoURL: {{ coalesce .repoURL $.Values.global.repoURL }}
     targetRevision: {{ coalesce .targetRevision $.Values.global.targetRevision }}
